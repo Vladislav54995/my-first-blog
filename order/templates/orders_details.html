@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Детали заказа</h1>
+    <p><strong>Номер заказа:</strong> {{ object.id }}</p>
+    <p><strong>Дата создания:</strong> {{ object.created_at }}</p>
+    <p><strong>Адрес доставки:</strong> {{ object.address }}</p>
+    <p><strong>Номер телефона:</strong> {{ object.phone_number }}</p>
+    <p><strong>Сумма заказа:</strong> {{ object.total }} тг</p>
+    <h2>Товары в заказе:</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Количество</th>
+                <th>Цена за единицу</th>
+                <th>Общая стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cart_item in object_list %}
+            <tr>
+                <td>{{ cart_item.product.name }}</td>
+                <td>{{ cart_item.amount }}</td>
+                <td>{{ cart_item.product.price }} тг</td>
+                <td>{{ cart_item.total_price }} тг</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

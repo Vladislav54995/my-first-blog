@@ -1,0 +1,128 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column min-vh-100" style="background-color: #fff;">
+    <!-- Главный баннер -->
+    <div class="row flex-grow-1 align-items-center" style="background-color: #000; color: #fff;">
+        <div class="col-md-6">
+            <h1 class="display-4 text-warning mb-4">Добро пожаловать в Электронику Shop</h1>
+            <p class="lead">Найдите лучшие гаджеты, смартфоны, компьютеры и аксессуары в нашем магазине электроники. Мы предлагаем только проверенные и высококачественные продукты.</p>
+            <a href="{% url 'catalog-page' %}" class="btn btn-warning btn-lg mt-3">Перейти в каталог</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/electronics-banner.jpg' %}" alt="Electronics Products" class="img-fluid rounded shadow">
+        </div>
+    </div>
+    
+    <!-- Секции категорий товаров -->
+    <div class="row text-center my-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="border: 1px solid #000;">
+                <img src="{% static 'img/smartphone.jpg' %}" class="card-img-top" alt="Smartphones">
+                <div class="card-body" style="background-color: #f8f9fa;">
+                    <h5 class="card-title text-dark">Смартфоны</h5>
+                    <p class="card-text text-dark">Лучшие смартфоны с высокими характеристиками и современными технологиями.</p>
+                    <a href="{% url 'catalog-page' %}" class="btn btn-warning">Перейти в категорию</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="border: 1px solid #000;">
+                <img src="{% static 'img/laptop.jpg' %}" class="card-img-top" alt="Laptops">
+                <div class="card-body" style="background-color: #f8f9fa;">
+                    <h5 class="card-title text-dark">Ноутбуки</h5>
+                    <p class="card-text text-dark">Мощные ноутбуки для работы и развлечений. Выбор для каждого.</p>
+                    <a href="{% url 'catalog-page' %}" class="btn btn-warning">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="border: 1px solid #000;">
+                <img src="{% static 'img/accessories.jpg' %}" class="card-img-top" alt="Accessories">
+                <div class="card-body" style="background-color: #f8f9fa;">
+                    <h5 class="card-title text-dark">Аксессуары</h5>
+                    <p class="card-text text-dark">Все, что нужно для вашего гаджета: чехлы, наушники, зарядные устройства и многое другое.</p>
+                    <a href="{% url 'catalog-page' %}" class="btn btn-warning">Перейти в раздел</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Популярные товары -->
+    <div class="text-center my-5">
+        <h2 class="display-4 text-warning mb-4">Популярные товары</h2>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm" style="border: 1px solid #000;">
+                    <img src="{% static 'img/smartphone1.jpg' %}" class="card-img-top" alt="Smartphone 1">
+                    <div class="card-body" style="background-color: #f8f9fa;">
+                        <h5 class="card-title text-dark">iPhone 15</h5>
+                        <p class="card-text text-dark">Высококлассный смартфон с мощным процессором и отличной камерой.</p>
+                        <a href="#" class="btn btn-warning">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm" style="border: 1px solid #000;">
+                    <img src="{% static 'img/laptop1.jpg' %}" class="card-img-top" alt="Laptop 1">
+                    <div class="card-body" style="background-color: #f8f9fa;">
+                        <h5 class="card-title text-dark">MacBook Pro 16"</h5>
+                        <p class="card-text text-dark">Профессиональный ноутбук с высоким разрешением экрана и отличной производительностью.</p>
+                        <a href="#" class="btn btn-warning">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm" style="border: 1px solid #000;">
+                    <img src="{% static 'img/earbuds.jpg' %}" class="card-img-top" alt="Earbuds">
+                    <div class="card-body" style="background-color: #f8f9fa;">
+                        <h5 class="card-title text-dark">Беспроводные наушники</h5>
+                        <p class="card-text text-dark">Лучший звук и комфорт для долгих прослушиваний.</p>
+                        <a href="#" class="btn btn-warning">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm" style="border: 1px solid #000;">
+                    <img src="{% static 'img/watch.jpg' %}" class="card-img-top" alt="Smartwatch">
+                    <div class="card-body" style="background-color: #f8f9fa;">
+                        <h5 class="card-title text-dark">Умные часы</h5>
+                        <p class="card-text text-dark">Следите за здоровьем и активностью с помощью современных умных часов.</p>
+                        <a href="#" class="btn btn-warning">Купить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Футер -->
+<footer class="bg-black text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>О нас</h5>
+                <p>Electronics Shop — ваш надежный поставщик гаджетов и электроники. Мы предлагаем самые актуальные товары с последними технологиями.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Обратная связь</h5>
+                <p>Если у вас есть вопросы, свяжитесь с нами:</p>
+                <p>Email: support@electronicshop.com</p>
+                <p>Телефон: +1 (800) 123-4567</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Следите за нами</h5>
+                <p>Мы в социальных сетях:</p>
+                <a href="#" class="text-white me-3">Facebook</a>
+                <a href="#" class="text-white me-3">Instagram</a>
+                <a href="#" class="text-white">Twitter</a>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>&copy; 2024 Electronics Shop. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

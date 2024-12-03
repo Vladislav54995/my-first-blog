@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .category-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 190px;
+        
+    }
+
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #333;
+        margin-top: 10px;
+    }
+
+    .card-img-top {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .card-img-top:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<h1 class="text-center my-4">Категории товаров</h1>
+
+<div class="row justify-content-center gap-3">
+    {% for category in object_list %}
+    <div class="col-md-3">
+        <div class="category-card text-center">
+            <a href="{% url 'products-page' category_id=category.id %}" class="card-link">
+                <img src="{{ category.image.url }}" alt="{{ category.name }}" class="card-img-top mx-auto">
+                <h6 class="card-title">{{ category.name }}</h6>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

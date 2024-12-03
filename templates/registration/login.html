@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Неверный логин или пароль!</strong> Повторите попытку.
+</div>
+{% endif %}
+
+<div class="container pt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-warning text-dark text-center">
+                    <h5>Авторизация/Вход</h5>
+                </div>
+                <div class="card-body bg-white text-dark">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Логин</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Пароль</label>
+                            {{ form.password }}
+                        </div>
+                        <button type="submit" class="btn btn-warning">Войти</button>
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </form>
+                </div>
+                <div class="card-footer bg-warning text-black">
+                    Нет аккаунта? <a href="{% url 'registration-page' %}" class="btn btn-link text-dark">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

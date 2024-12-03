@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+    <h1></h1>
+    {% if orders %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Дата</th>
+                <th scope="col">Сумма заказа</th>
+                <th>Оплата</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.created_at }}</td>
+                <td>{{ order.total }} тг</td>
+                <td>
+                    {% if order.payment %} Оплачено 
+                    {% else %} Не оплачено {% endif %}
+                </td>
+                <td><a href="{% url 'order-details-page' order_id=order.id %}" class="btn btn-primary">Подробнее</a></td>
+                <td><a href="{% url 'create-payment-page' order_id=order.id %}" class="btn btn-primary">Оплатить</a></td>
+                <td>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="delete_order" value="{{ order.id }}">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+       У вас пока нет заказов
+    </div>
+    {% endif %}
+</div> 
+{% endblock content %}

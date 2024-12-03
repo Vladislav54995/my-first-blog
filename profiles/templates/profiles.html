@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container pt-5">
+    <h1 class="text-center text-warning mb-4">Профиль</h1>
+    <div class="row">
+        <div class="col-md-3 text-center">
+            {% if profile.get_photo_url %}
+                <img src="{{ profile.get_photo_url }}" alt="Фото профиля" class="img-thumbnail border-0">
+            {% else %}
+                <img src="{% static 'img/default_avatar.png' %}" alt="Фото профиля" class="img-thumbnail border-0">
+            {% endif %}
+        </div>
+        <div class="col-md-9">
+            <div class="bg-white p-4 rounded shadow-sm">
+                <p><strong>Логин:</strong> <span class="text-dark">{{ user.username }}</span></p>
+                <p><strong>Имя:</strong> <span class="text-dark">{{ user.first_name }}</span></p>
+                <p><strong>Фамилия:</strong> <span class="text-dark">{{ user.last_name }}</span></p>
+                <p><strong>Email:</strong> <span class="text-dark">{{ user.email }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

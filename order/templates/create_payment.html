@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #D3D3D3;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .card-payment-form {
+    max-width: 400px;
+    margin: auto;
+  }
+  .card-payment-form input,
+  .card-payment-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  .card-payment-form .Expiry {
+    background-color: transparent; /* Makes background transparent */
+    color: rgba(0, 0, 0, 0.5); /* Sets text color to a light gray */
+  }
+  .card-payment-form .Expiry::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Sets placeholder text color */
+  }
+  .payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #D3D3D3;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .logo-container img {
+    width: 100px;
+    height: auto;
+  }
+  .form-container {
+    flex-grow: 1;
+  }
+  .payment-logo {
+    margin-right: 20px;
+  }
+</style>
+
+<div class="container">
+  <div class="payment-logo">
+    <img src="{% static 'img/OIP.jpeg' %}" alt="Visa Mastercard Logo" width="100px" />
+  </div>
+  <h2 class="text-center">Оплата заказа</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" class="card-payment-form">
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.card_number.label_tag }}
+          {{ form.card_number }}
+        </div>
+        <div class="mb-3">
+          {{ form.Person_name.label_tag }}
+          {{ form.Person_name }}
+        </div>
+        <div class="mb-3">
+          {{ form.Expiry.label_tag }}
+          <input
+            type="text"
+            name="{{ form.Expiry.name }}"
+            placeholder="MM/YY"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          {{ form.cvv.label_tag }}
+          {{ form.cvv }}
+        </div>
+        <button type="submit" class="btn btn-primary">Оплатить</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
