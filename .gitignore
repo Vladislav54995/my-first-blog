@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env
+*.venv
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+uploads/
+staticfiles/
+*.pid
+.pytest_cache/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+.DS_Store
+
+# Deployment
+*.manifest
+*.spec
+*.key
+
+# MySQL dumps or sensitive files
+*.sql
+*.sql.gz
